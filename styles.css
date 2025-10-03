@@ -1,0 +1,231 @@
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+body{
+    background-color: #F4D04E;
+    margin: 0;
+    display: flex;
+    height: 100vh; /* 100% height of our window, making this for align-items:center; */
+    justify-content: center;
+    align-items: center;
+}
+
+p{
+    margin: 0;
+}
+
+h1{
+    margin: 0;
+}
+
+#article-box{
+    background-color: #FFFFFF;
+    margin: 0;
+    width: 327px;
+    height: 501px;
+
+    position: relative; /* for pseudo-element*/
+
+    box-shadow: 8px 8px #000000;
+
+    border-radius: 20px;
+    box-sizing: border-box; /* According to Figma, the stroke is 1px and positioned INSIDE.
+            By default, CSS borders are drawn outside the element's content box.
+            To match Figma's "inside" stroke, we use `box-sizing: border-box`
+            so the border stays inside the element's dimensions. */
+
+    display: flex;
+    flex-direction: column; /* main axis = vertical*/
+    justify-content: flex-start;
+    gap: 24px;
+
+    padding: 24px;
+}
+
+#article-box::before{
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0; 
+    pointer-events: none;
+
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #111111;
+    border-radius: 20px;
+    /* we made a pseudo-element with ::before, we put it on top using position:absolute, stretched it to our div with top/left/right/bottom=0, made it "transparent" for clicks with pointer-events: none, created empty content: "" for rendering, and then we made default border. */
+    /* we have done all this so that our padding works starting from the edges of our "article-box" container, and not starting from the "border" */
+}
+
+#article-box img{
+    display: block;
+    margin: 0; /* vertical align */
+    width: 279px;
+    height: 200px;
+    object-fit: cover; /* this is for cropping photo on a mobile device, watchout FIGMA file, and compare mobile/PC */
+    border-radius: 10px;
+}
+
+@media (min-width: 1024px) {
+    #article-box{
+        width: 384px;
+        height: 522px;
+    }
+
+    #article-box img{
+        width: 100%;
+    }
+}
+
+#article{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+}
+
+#article-author{
+    width: 129px;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* making cross-axis (vertical) centering */
+    justify-content: flex-start; /* making our content start on left side */
+    gap: 12px;
+}
+
+#article-author img{
+    width: 32px;
+    height: 32px;
+    margin: 0px;
+}
+
+#article-author p{
+    color: #111111;
+    font-family: "Figtree", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0px;
+}
+
+#article-tag{
+    width: 73px;
+    height: 26px;
+    background-color: #F4D04E;
+    border-radius: 4px;
+    
+    display: flex; /* flex-direction by default is ROW */
+    justify-content: center; /* align by main axis */
+    align-items: center; /* align by cross axis */
+}
+
+#article-tag p{
+    color: #111111;
+    margin: 0;
+    font-family: "Figtree", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0px;
+}
+
+#article-published-date p{
+    color: #111111;
+    margin: 0;
+    font-family: "Figtree", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0px;
+}
+
+#article-heading h1 a{
+    text-decoration: none;
+    color: #111111;
+    margin: 0;
+    font-family: "Figtree", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: 0px;
+}
+
+#article-heading h1 a:hover{
+    color:#F4D04E;
+}
+
+h1 a:focus-visible {
+  outline: 2px solid #F4D04E;
+  outline-offset: 4px;
+  color: #F4D04E;
+}
+
+/* h1 a:active {
+  color: #E6C200;
+} */
+
+#article-comment{
+    margin:0;
+    flex-shrink: 0;
+}
+
+#article-comment p{
+    color: #6B6B6B;
+    font-family: "Figtree", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0px;
+    
+}
+
+@media (max-width: 1023px) {
+    #article-comment p{
+        font-size: 14px;
+    }
+
+    #article-heading h1{
+        font-size: 20px;
+    }
+
+    #article-tag p{
+        font-size: 12px;
+    }
+
+    #article-published-date p{
+        font-size: 12px;
+    }
+} /* Please be aware of the FIGMA file! Some fonts may appear slightly smaller on mobile devices than on PC. */
+
+
+.attribution{
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 11px;
+    color: #111111;
+    margin: 0;
+    font-family: "Figtree", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 150%;
+    letter-spacing: 0px;
+}
+
+.attribution a{
+    color: hsl(228, 45%, 44%);
+}
