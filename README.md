@@ -20,8 +20,8 @@ This is a solution to the [Blog preview card challenge on Frontend Mentor](https
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/thebefast6239/Blog-Preview-Card)
-- Live Site URL: [Add live site URL here](https://thebefast6239.github.io/Blog-Preview-Card)
+- Solution URL: [github repo](https://github.com/thebefast6239/Blog-Preview-Card)
+- Live Site URL: [github io](https://thebefast6239.github.io/Blog-Preview-Card)
 
 ## My process
 
